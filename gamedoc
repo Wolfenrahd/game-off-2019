@@ -1,0 +1,16 @@
+RailBound
+
+This game is being developed for GameOff 2019.
+
+The theme of this game is "LEAPS AND BOUNDS".
+The player character will be able to jump across the play area simularly to a railgun. The player can use this ability to dodge and fight enemies. The player will also have an electromagnetic force field. It can only be activated for short periods, so timing will be crucial. If used to block an attack, the player will be knocked back depending on the power of the attack.
+
+
+Controls:
+WASD/Arrow Keys: Move
+Mouse Look: Aim for jump destination
+Left Mouse Button: Use Railgun ability
+Right Mouse Button: Use Force Field
+
+Goals:
+You must reach the required score to pass a level by completing objectives, such as escaping, getting collectibles, or destroying enemies. Since the available points to earn will be higher than the required score, you will have more freedom in how you complete a level.

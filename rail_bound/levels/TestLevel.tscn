@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 477.381, 36.4515 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.359, 471.13 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 519.103, 392.826 )
+scale = Vector2( 0.75, 0.75 )
+move_speed = 150.0
+jump_speed = 400.0
+railgun_speed = 1500.0
+air_acceleration = 5.0
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2( 500.349, 518.563 )
+
+[node name="Sprite" type="Sprite" parent="floor"]
+scale = Vector2( 15, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource( 1 )
+
+[node name="floor2" type="StaticBody2D" parent="."]
+position = Vector2( 77.6286, 284.8 )
+
+[node name="Sprite" type="Sprite" parent="floor2"]
+scale = Vector2( 15, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
+shape = SubResource( 1 )
+
+[node name="cieling" type="StaticBody2D" parent="."]
+position = Vector2( 743.851, 27.6619 )
+
+[node name="Sprite" type="Sprite" parent="cieling"]
+scale = Vector2( 15, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cieling"]
+shape = SubResource( 1 )
+
+[node name="rightwall" type="StaticBody2D" parent="."]
+position = Vector2( 1008.32, 282.284 )
+
+[node name="Sprite" type="Sprite" parent="rightwall"]
+scale = Vector2( 1, 15 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightwall"]
+shape = SubResource( 2 )
+
+[node name="leftwall" type="StaticBody2D" parent="."]
+position = Vector2( 36.554, 320.047 )
+
+[node name="Sprite" type="Sprite" parent="leftwall"]
+scale = Vector2( 1, 15 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftwall"]
+shape = SubResource( 2 )
