@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Obstacle
 
 var is_tracking_player := false;
 var is_shooting := false;
@@ -8,19 +8,22 @@ func _ready() -> void:
 	$ShootTimer.connect("timeout", self, "on_shoot_timeout");
 	$CooldownTimer.connect("timeout", self, "on_cooldown_timeout");
 	
-	player = get_parent().get_node("Player");
+	player = get_node("/root/Level/Player");
 	$Barrel/RayCast2D.add_exception(self);
 
 func _physics_process(delta: float) -> void:
 	if not is_shooting:
-		if $Barrel.get_angle_to(player.position) > rotation:
-			$Barrel.rotation += .01;
-		else:
-			$Barrel.rotation -= .01;
+		$RayCast2D.cast_to = (player.position - position);
+		$RayCast2D.force_raycast_update();
 		
-		$Barrel/RayCast2D.force_raycast_update();
-		if $Barrel/RayCast2D.is_colliding():
-			if $Barrel/RayCast2D.get_collider().name == "Player":
+		if is_player_visible($RayCast2D):
+			if $Barrel.get_angle_to(player.position) > rotation:
+				$Barrel.rotation += .01;
+			else:
+				$Barrel.rotation -= .01;
+			
+			$Barrel/RayCast2D.force_raycast_update();
+			if is_player_visible($Barrel/RayCast2D):
 				is_shooting = true;
 				$ShootTimer.start();
 

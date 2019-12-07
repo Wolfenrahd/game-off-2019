@@ -11,4 +11,4 @@ func _physics_process(delta: float) -> void:
 func on_body_entered(body):
 	queue_free();
 	if body.name == "Player":
-		print("Hit");
+		body.obstacle_hit();

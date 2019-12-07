@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 125.9, 31.8499 )
 
-[node name="Razor" type="StaticBody2D"]
+[node name="Razor" type="Area2D" groups=[
+"hazard",
+]]
 collision_layer = 2
 script = ExtResource( 1 )
 

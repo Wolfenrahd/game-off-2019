@@ -8,9 +8,56 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "MovementState",
+"class": "ClimbingState",
+"language": "GDScript",
+"path": "res://player/movement/climbing_state.gd"
+}, {
+"base": "MovementState",
+"class": "FallingState",
+"language": "GDScript",
+"path": "res://player/movement/falling_state.gd"
+}, {
+"base": "MovementState",
+"class": "IdleState",
+"language": "GDScript",
+"path": "res://player/movement/idle_state.gd"
+}, {
+"base": "Node",
+"class": "MovementState",
+"language": "GDScript",
+"path": "res://player/movement/movement_state.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://obstacles/obstacle.gd"
+}, {
+"base": "MovementState",
+"class": "RailgunState",
+"language": "GDScript",
+"path": "res://player/movement/railgun_state.gd"
+}, {
+"base": "MovementState",
+"class": "RollingState",
+"language": "GDScript",
+"path": "res://player/movement/rolling_state.gd"
+}, {
+"base": "MovementState",
+"class": "RunningState",
+"language": "GDScript",
+"path": "res://player/movement/running_state.gd"
+} ]
 _global_script_class_icons={
-
+"ClimbingState": "",
+"FallingState": "",
+"IdleState": "",
+"MovementState": "",
+"Obstacle": "",
+"RailgunState": "",
+"RollingState": "",
+"RunningState": ""
 }
 
 [application]
@@ -18,9 +65,13 @@ _global_script_class_icons={
 config/name="RailBound"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
-window/size/width=1280
+window/size/width=1200
 window/size/height=720
 window/size/test_width=1024
 window/size/test_height=600
@@ -66,6 +117,12 @@ move={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
  ]
 }
+slide={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -76,4 +133,7 @@ move={
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
